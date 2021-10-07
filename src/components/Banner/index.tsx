@@ -8,7 +8,7 @@ interface BannerProps {
 }
 export function Banner({ backgroundImage, children, height }: BannerProps) {
   return (
-    <Box backgroundImage={backgroundImage} height={height}>
+    <Box backgroundImage={backgroundImage} height={height} w={"100%"}>
       {children}
     </Box>
   );

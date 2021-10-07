@@ -1,18 +1,21 @@
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useBreakpointValue } from "@chakra-ui/react";
+
+import SwiperCore, { Navigation, Pagination } from "swiper";
+import { theme } from "../../styles/theme";
+import { CarouselItem } from "./CarouselItem";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import SwiperCore, { Navigation, Pagination } from "swiper";
-import { theme } from "../../styles/theme";
-import { Text, Flex, Center, Stack } from "@chakra-ui/react";
-import { CarouselItem } from "./CarouselItem";
-
 SwiperCore.use([Navigation, Pagination]);
 
 export function Carousel() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <Swiper
       navigation
@@ -25,7 +28,7 @@ export function Carousel() {
       <SwiperSlide
         style={{
           backgroundImage: "url(../images/europeSlide.svg)",
-          minHeight: "400px",
+          minHeight: isWideVersion ? "400px" : "250px",
         }}
       >
         <CarouselItem
@@ -39,8 +42,8 @@ export function Carousel() {
         <CarouselItem
           link="/continents/americaNorte"
           title="América do Norte"
-          subtitle="O continente mais antigo"
-          image="../images/europeSlide.svg"
+          subtitle="O continente mais moderno"
+          image="../images/usa_02.jpg"
         />
       </SwiperSlide>
       <SwiperSlide>
@@ -56,7 +59,7 @@ export function Carousel() {
           link="/continents/asia"
           title="Ásia"
           subtitle="O continente da sabedoria"
-          image="../images/asia02.jpg"
+          image="../images/asia.jpg"
         />
       </SwiperSlide>
       <SwiperSlide>
@@ -64,7 +67,7 @@ export function Carousel() {
           link="/continents/africa"
           title="África"
           subtitle="O continente da natureza"
-          image="../images/europeSlide.svg"
+          image="../images/africa.jpg"
         />
       </SwiperSlide>
       <SwiperSlide>

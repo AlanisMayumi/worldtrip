@@ -25,13 +25,18 @@ export function CarouselItem({
               <Text
                 color="white.500"
                 textAlign="center"
-                fontSize="48px"
+                fontSize={["24px", "48px"]}
                 fontWeight="700"
-                pb="3"
+                pb="2"
               >
                 {title}
               </Text>
-              <Text color="gray.100" textAlign="center" fontSize="24px">
+              <Text
+                color="gray.100"
+                textAlign="center"
+                fontWeight="700"
+                fontSize={["14px", "24px"]}
+              >
                 {subtitle}
               </Text>
             </a>
